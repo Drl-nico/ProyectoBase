@@ -18,6 +18,7 @@ class MainActivity2 : AppCompatActivity() {
         setContentView(R.layout.activity_main2)
 
         //ACTIVITY DESTINO
+        val ed_buttonmanin4:Button=findViewById(R.id.ed_irmain4)
         val ed_buttonPerfil2: Button = findViewById(R.id.ed_buttonPerfil)
         val msjeBienvenida:TextView = findViewById(R.id.tx_bienvenido)
         //creo variable asigno valor recibido desde otro activity
@@ -45,6 +46,10 @@ class MainActivity2 : AppCompatActivity() {
             startActivity(goperfil)
         }
 
+        ed_buttonmanin4.setOnClickListener{
+            val gomain4 = Intent(this, MainActivity4::class.java)
+            startActivity(gomain4)
+        }
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())

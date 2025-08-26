@@ -23,16 +23,29 @@ class MainActivity3 : AppCompatActivity() {
         val buttonVolver: Button=findViewById(R.id.volver_retroceder)
         val buttonGuardardatos: Button=findViewById(R.id.guardarDatos)
         val textomostrar1:TextView=findViewById(R.id.textView2)
+        val textomostrar2:TextView=findViewById(R.id.textView3)
+        val textomostrarfecha:TextView=findViewById(R.id.textView4)
+        val buttonContinuar: Button=findViewById(R.id.ed_continuar)
 
-        var guardardatos=""
+        var guardardatosnombre=""
+        var guardardatosapellidos=""
+        var fechaguardar=""
         buttonGuardardatos.setOnClickListener{
-            guardardatos=nombreguardarVariable.text.toString()
-            guardardatos=apellidoGuardarVariable.text.toString()
-            guardardatos=fechanaciminentoguardar.text.toString()
+            guardardatosnombre=nombreguardarVariable.text.toString()
+            guardardatosapellidos=apellidoGuardarVariable.text.toString()
+            fechaguardar=fechanaciminentoguardar.text.toString()
+            textomostrar1.setText(guardardatosnombre)
+            textomostrar2.setText((guardardatosapellidos))
+            textomostrarfecha.setText(fechaguardar)
         }
         buttonVolver.setOnClickListener{
             val back = Intent(this, MainActivity2::class.java)
             startActivity(back)
+        }
+
+        buttonContinuar.setOnClickListener{
+            val continuar = Intent(this, MainActivity4::class.java)
+            startActivity(continuar)
         }
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
