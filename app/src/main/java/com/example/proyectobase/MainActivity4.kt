@@ -23,58 +23,45 @@ class MainActivity4 : AppCompatActivity() {
         val mostrarResultado:TextView=findViewById(R.id.Mostrar_Resultado)
         val calcularbutton:Button=findViewById(R.id.ed_calcular)
         val menu:Spinner=findViewById(R.id.ed_spinner)
-//crear arraylist
+
         val menuopciones = arrayOf("sumar","restar","multiplicar","dividir")
-//crear adaptador
+
         val adapter = ArrayAdapter(this,android.R.layout.simple_list_item_1,menuopciones)
-// asignar adaptador
+
         menu.adapter=adapter
 
-//Opcion 1
-        calcularbutton.setOnClickListener{
-            val valor1 = dato1guardar.text.toString().toIntOrNull() ?: 0
-            val valor2 = datos2guardar.text.toString().toIntOrNull() ?: 0
-            var resultado=OPMath.divi(valor1,valor2)
-            mostrarResultado.text = resultado.toString()
 
+        calcularbutton.setOnClickListener{
+             val valor1 = dato1guardar.text.toString().toIntOrNull() ?: 0
+             val valor2 = datos2guardar.text.toString().toIntOrNull() ?: 0
+            val opcion=menu.selectedItem.toString()
+             val resultado=when(opcion){
+                 "sumar"->OPMath.sumar(valor1,valor2)
+                 "restar"->OPMath.restar(valor1,valor2)
+                 "multiplicar"->OPMath.multi(valor1,valor2)
+                 "dividir"->OPMath.divi(valor1,valor2)
+                 else -> 0
+             }
+            mostrarResultado.text=resultado.toString()
         }
 
-
-
-
-
-
-
-
-
-
-
-//opcion 2
-        //calcularbutton.setOnClickListener {
-            //val valor1 = dato1guardar.text.toString().toIntOrNull() ?: 0
-            //val valor2 = datos2guardar.text.toString().toIntOrNull() ?: 0
-            //var resultado=0
-            //val opcion=menu.selectedItem.toString()
-            //when(opcion){
-                //"sumar"->resultado = valor1 + valor2
-                //"restar"->resultado = valor1 - valor2
-                //"multiplicar"->resultado = valor1 * valor2
-                //"dividir"->{
-               //     resultado;if(valor2!=0) valor1/valor2 else 0
-             //   }
-           // }
-          //  mostrarResultado.text = resultado.toString()
-        //}
-
-
-
-
-
-
-
-
-
-
+        /* opcion 2 dividir error
+        calcularbutton.setOnClickListener {
+            val valor1 = dato1guardar.text.toString().toIntOrNull() ?: 0
+            val valor2 = datos2guardar.text.toString().toIntOrNull() ?: 0
+            var resultado=0
+           val opcion=menu.selectedItem.toString()
+            when(opcion){
+                "sumar"->resultado = valor1 + valor2
+                "restar"->resultado = valor1 - valor2
+                "multiplicar"->resultado = valor1 * valor2
+               "dividir"->{
+                   resultado;if(valor2!=0) valor1/valor2 else 0
+               }
+           }
+            mostrarResultado.text = resultado.toString()
+        }
+        */
 
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
