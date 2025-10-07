@@ -26,6 +26,9 @@ class MainActivity5 : AppCompatActivity() {
         val adaptador = ArrayAdapter(this,android.R.layout.simple_list_item_1,opcionesArr)
         opcionesLV.adapter = adaptador
 
+
+
+
         opcionesLV.setOnItemClickListener{ parent,view,position,id->
             val itemlegido=parent.getItemAtPosition(position).toString()
             Toast.makeText(this,itemlegido,Toast.LENGTH_SHORT).show()
