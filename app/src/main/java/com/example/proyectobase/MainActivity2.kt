@@ -22,6 +22,7 @@ class MainActivity2 : AppCompatActivity() {
         val ed_buttonPerfil2: Button = findViewById(R.id.ed_buttonPerfil)
         val msjeBienvenida:TextView = findViewById(R.id.tx_bienvenido)
         val activity6:Button=findViewById(R.id.ed_activity6)
+        val activity7ir:Button=findViewById(R.id.activity7_button)
         //creo variable asigno valor recibido desde otro activity
         val usuarioDesdeOtroActivity = intent.getStringExtra("sesion")
         //seteo un TextView reemplazando el texto por el contenido.
@@ -55,6 +56,11 @@ class MainActivity2 : AppCompatActivity() {
             val gomain6 = Intent(this, MainActivity6::class.java)
             startActivity(gomain6)
         }
+        activity7ir.setOnClickListener{
+            val gomain7 = Intent(this, MainActivity7::class.java)
+            startActivity(gomain7)
+        }
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
