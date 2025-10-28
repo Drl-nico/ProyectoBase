@@ -45,6 +45,10 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+
+
+    // Núcleo de Retrofit: cliente HTTP para consumir APIs REST con interfaces anotadas (@GET, @POST, etc.)
     implementation("com.squareup.retrofit2:retrofit:2.11.0")
     // Convertidor JSON <-> data classes usando Moshi dentro de Retrofit (MoshiConverterFactory)
     implementation("com.squareup.retrofit2:converter-moshi:2.11.0")
@@ -56,15 +60,12 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.8.0")
     // Adaptadores de Moshi para Kotlin (null-safety, data classes, KotlinJsonAdapterFactory)
     implementation("com.squareup.moshi:moshi-kotlin:1.15.1")
-    implementation ("androidx.camera.camera2:camera-camera2:1.1.0")
-    implementation ("androidx.camera.lifecycle:lifecycle-camera:1.1.0")
-
-    implementation("androidx.camera:camera-core:1.3.1")
-    implementation("androidx.camera:camera-camera2:1.3.0")
-    implementation("androidx.camera:camera-lifecycle:1.3.0")
-    implementation("androidx.camera:camera-view:1.3.1")
-    implementation("androidx.camera:camera-extensions:1.3.1")
 
 
+    //dependencias nuevas camara
+    implementation("androidx.camera:camera-core:1.3.4")
+    implementation("androidx.camera:camera-camera2:1.3.4")
+    implementation("androidx.camera:camera-lifecycle:1.3.4")
+    implementation("androidx.camera:camera-view:1.3.4")
 
 }

@@ -1,5 +1,6 @@
 package com.example.proyectobase
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.Button
@@ -11,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.proyectobase.funciones.InsertarAlumnosAPI
+import com.example.proyectobase.DB.AlumnosLocalRepository
 
 class MainActivity6 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,7 +22,7 @@ class MainActivity6 : AppCompatActivity() {
 
         val nombre_dato:EditText=findViewById(R.id.ed_Name)
         val apellido_dato:EditText=findViewById(R.id.ed_LastName)
-        val foto_guardar:Button=findViewById(R.id.ed_button_foto)
+        val guardar_activity_sql:Button=findViewById(R.id.ed_button_foto)
         val saves_datos:Button=findViewById(R.id.ed_save)
         val spSeccion:Spinner=findViewById(R.id.ed_seccion)
         val spgrupo:Spinner=findViewById(R.id.ed_grupo)
@@ -53,11 +55,9 @@ class MainActivity6 : AppCompatActivity() {
                 }
             )
         }
-
-
-
-
-
+        guardar_activity_sql.setOnClickListener {
+            AlumnosLocalRepository.insert(this,nombre_dato.text.toString(),apellido_dato.text.toString(),spgrupo.selectedItem.toString(),spSeccion.selectedItem.toString())
+        }
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
